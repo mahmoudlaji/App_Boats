@@ -1,0 +1,8 @@
+<%= simple_form_for(@boat) do |b| %>
+  <%= b.input :category, collection: Boat::CATEGORIES %>
+  <%= b.input :name %>
+  <%= b.input :address %>
+  <%= b.input :description %>
+  <%= b.input :price %>
+  <%= b.submit class: "btn btn-primary" %>
+<% end %>
