@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-12"><br>
-      <h3>All Our Best Boats</h3>
+      <h5>All Our Best Boats</h5>
     </div>
   </div>
 
@@ -15,7 +15,7 @@
           <p>All <%= Boat.count %> boats.</p>
           <% end %>
     </div>
-  </div>
+  </div><br>
 
   <div class="row">
     <% @boats.each do |boat| %>
@@ -45,9 +45,9 @@
             </div>
           </div>
           <div class="flat-card-actions">
-            <%= link_to "More info" , boat_path(flat) %>
-              <%= link_to "Edit" , edit_boat_path(flat), class: "ms-3 text-warning" %>
-                <%= link_to "Remove" , boat_path(flat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            <%= link_to "More info" , boat_path(boat) %>
+              <%= link_to "Edit" , edit_boat_path(boat), class: "ms-3 text-warning" %>
+                <%= link_to "Remove" , boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                   class: "ms-3 text-danger" %>
           </div>
         </div>
