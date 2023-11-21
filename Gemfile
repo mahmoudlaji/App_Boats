@@ -8,7 +8,7 @@ gem "devise"
 # Gemfile
   gem "dotenv-rails"
 
-  # Gemfile cloudinary pour image 
+  # Gemfile cloudinary pour image
 gem "cloudinary"
 
 # bootstraps
@@ -17,7 +17,7 @@ gem "bootstrap", "~> 5.2"
 # autoprefix navigateur web
 gem "autoprefixer-rails"
 
-# Font awesome use 
+# Font awesome use
 gem "font-awesome-sass", "~> 6.1"
 
 # gem pour le formulaire

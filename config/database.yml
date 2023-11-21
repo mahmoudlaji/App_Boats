@@ -1,3 +1,4 @@
+
 # PostgreSQL. Versions 9.3 and up are supported.
 #
 # Install the pg driver:
@@ -12,7 +13,7 @@
 #       Install PostgreSQL and put its /bin directory on your path.
 #
 # Configure Using Gemfile
-# gem "pg"
+# gem "pg"rπ
 #
 default: &default
   adapter: postgresql
