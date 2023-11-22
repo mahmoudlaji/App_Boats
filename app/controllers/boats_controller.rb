@@ -5,7 +5,7 @@ class BoatsController < ApplicationController
     def index
       if params[:query].present?
         @query = params[:query]
-        @boats = Boat.where("name LIKE ?", "%#{params[:query]}%")
+        @boats = Boat.where("category ILIKE ?", "%#{params[:query]}%")
         # Preventing SQL Injection and Database error for
         # unknown characters
       else
@@ -44,6 +44,19 @@ class BoatsController < ApplicationController
     def destroy
       @boat.destroy
       redirect_to boats_path
+    end
+    def search
+      @boats = if params[:query].present?
+                 perform_search(params[:query])
+               else
+                 Boat.all
+               end
+      render :index
+    end
+
+    def perform_search(query)
+      category_query = query["category"].downcase if query.present? && query["category"].present?
+      Boat.where("lower(category) = ?", category_query)
     end
 
     private
