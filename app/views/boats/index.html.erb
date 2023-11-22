@@ -6,18 +6,6 @@
   </div>
 
   <div class="row">
-    <div class="col">
-      <% if @query %>
-        <p>You searched for <strong>
-            <%= @query %>
-          </strong>. We found <%= @boats.count %> Boats out of our <%= Boat.count %> on our website.</p>
-        <% else %>
-          <p>All <%= Boat.count %> boats.</p>
-          <% end %>
-    </div>
-  </div><br>
-
-  <div class="row">
     <% @boats.each do |boat| %>
       <div class="col-md-4">
         <div class="flat-card">
