@@ -8,15 +8,12 @@
 
 
   <div class="row">
-    <% @boats.each do |boat| %>
+     <% @boats.each do |boat| %>
       <div class="col-md-4">
         <div class="flat-card">
-
-
-          <div class="flat-card-content">
+          <div class="flat-card-content d-flex flex-column">
             <div class="flat-card-title">
-              <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill if boat.photo.attached? %>
-
+              <%= cl_image_tag(boat.photo.key, height: 300, width: 400, crop: :fill) if boat.photo.attached? %>
               <h1>
                 <%= boat.category %>
               </h1>
@@ -28,29 +25,25 @@
               <%= boat.address %>
             </p>
             <div class="flex">
-
               <div class="flex align-items-center ms-3">
                 <i class="fa-solid fa-euro-sign"></i>
                 <span>
                   <%= boat.price %>
                 </span>
-
               </div>
             </div>
-            <div class="flat-card-actions">
-              <%= link_to "More info" , boat_path(boat) %>
-                <%= link_to "Edit" , edit_boat_path(boat), class: "ms-3 text-warning" %>
-                  <%= link_to "Remove" , boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"
-                    }, class: "ms-3 text-danger" %>
+            <div class="flat-card-actions mt-auto">
+              <%= link_to "More info", boat_path(boat) %>
+              <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning" %>
+              <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "ms-3 text-danger" %>
             </div>
           </div>
         </div>
-        <% end %>
-    </div>
-
-
+      </div>
+    <% end %>
+  </div>
 </div>
 
 
 </div>
-
