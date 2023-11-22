@@ -1,0 +1,20 @@
+<!-- app/views/boats/search.html.erb -->
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12"><br>
+      <h5>All Our Best Boats</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @boats.count %> Boats out of our <%= Boat.count %> on our website.</p>
+      <% else %>
+        <p>All <%= Boat.count %> boats.</p>
+      <% end %>
+
+
+    </div>
+  </div><br>
+</div>
