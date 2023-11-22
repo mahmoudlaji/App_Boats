@@ -13,14 +13,12 @@ class BoatsController < ApplicationController
   end
 
   def search
-    if params[:query].present?
-      @query = params[:query].downcase
-      @boats = Boat.where("category ILIKE ?", "%#{@query}%")
-      # Prévention des injections SQL et des erreurs de base de données pour
-      # les caractères inconnus
+    @boats = if params[:query].present?
+            perform_search(params[:query])
     else
-      redirect_to boats_path
+      Boat.all
     end
+    render :index
   end
 
   def new
@@ -28,7 +26,7 @@ class BoatsController < ApplicationController
   end
 
   def create
-    @boat = Boat.new(boat_params)
+    @boat = Boat.new(boat_path)
     if @boat.save
       redirect_to boats_path
     else
@@ -63,7 +61,23 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:id])
   end
 
-  def boat_params
+
+  private
+  def set_boat
+    @boat = Boat.find_by(id: params[:id])
+    unless @boat
+      flash[:alert] = "Boat not found"
+      redirect_to root_path
+   end
+
+   def boat_params
     params.require(:boat).permit(:category, :name, :address, :description, :price)
   end
+
+  def perform_search(query)
+    category_query = query["category"].downcase if query.present? && query ["category"].present?
+    Boat.where("lower(category) = ?, category_query")
+
+  end
+end
 end

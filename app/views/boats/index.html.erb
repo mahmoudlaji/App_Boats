@@ -1,59 +1,25 @@
-<%= render "shared/navbar" %>
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col-12"><br>
-        <h5>All Our Best Boats</h5>
+<!-- Votre fichier de mise en page principale (par exemple, application.html.erb) -->
+<!-- ... (autres balises head et body) -->
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <%= link_to "Home Boats" , boats_path %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        </ul>
+      <%= form_tag(boats_path, method: :get, class: "d-flex") do %>
+      <input class="form-control me-2" name="query[category]" type="search" placeholder="Search by Category" aria-label="Search"
+         value="<%= params.dig(:query, :category) %>">
+       <button class="btn btn-outline-success" type="submit">Search</button>
+      <% end %>
+        <%= link_to "Add new Boats" , new_boat_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col">
-        <% if @query %>
-          <p>You searched for <strong>
-              <%= @query %>
-            </strong>. We found <%= @boats.count %> Boats out of our <%= Boat.count %> on our website.</p>
-          <% else %>
-            <p>All <%= Boat.count %> boats.</p>
-            <% end %>
-      </div>
-    </div><br>
-
-    <div class="row">
-      <% @boats.each do |boat| %>
-        <div class="col-md-4">
-          <div class="flat-card">
-
-            <div class="flat-card-content">
-              <div class="flat-card-title">
-                <h1>
-                  <%= boat.category %>
-                </h1>
-                <h4>
-                  <%= boat.name %>
-                </h4>
-              </div>
-              <p>
-                <%= boat.address %>
-              </p>
-              <div class="flex">
-
-                <div class="flex align-items-center ms-3">
-                  <i class="fa-solid fa-euro-sign"></i>
-                  <span>
-                    <%= boat.price %>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="flat-card-actions">
-              <%= link_to "More info" , boat_path(boat) %>
-                <%= link_to "Edit" , edit_boat_path(boat), class: "ms-3 text-warning" %>
-                  <%= link_to "Remove" , boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"
-                    }, class: "ms-3 text-danger" %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-    </div>
-
-  </div>
+  </nav>
+  <%= yield %>
+</body>
+</html>
