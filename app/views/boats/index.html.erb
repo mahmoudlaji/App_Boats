@@ -24,6 +24,8 @@
 
           <div class="flat-card-content">
             <div class="flat-card-title">
+              <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill if boat.photo.attached? %>
+
               <h1>
                 <%= boat.category %>
               </h1>

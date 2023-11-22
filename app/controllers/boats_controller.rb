@@ -21,7 +21,7 @@ class BoatsController < ApplicationController
     def create
       @boat = Boat.new(boat_params)
       if @boat.save
-        redirect_to boats_path
+        redirect_to boat_path(@boat)
       else
         render :new, status: :unprocessable_entity
       end
@@ -52,6 +52,6 @@ class BoatsController < ApplicationController
     end
 
     def boat_params
-      params.require(:boat).permit(:category, :name, :address, :description, :price)
+      params.require(:boat).permit(:category, :name, :address, :description, :price, :photo, :photos)
     end
 end

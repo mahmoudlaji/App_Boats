@@ -1,9 +1,8 @@
-
-
 <div class="container margin-top-negative">
     <div class="row">
       <div class="col-8">
         <div class="flat-show-card">
+          <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill if @boat.photo.attached? %>
           <h3><%= @boat.category %></h3>
           <h5><%= @boat.name %></h5>
           <p class="flat-show-address"><%= @boat.address %></p>
@@ -11,14 +10,14 @@
         <div class="flat-show-card">
           <h4>A bit more about this boat...</h4>
           <p><%= @boat.description %></p>
-          
+
         </div>
       </div>
-  
+
       <div class="col-4">
         <div class="flat-show-card">
           <h5>Book this place!</h5>
-  
+
           <form action="">
             <div class="input-group">
               <span class="input-group-text" id="start-date-label">From:</span>
@@ -34,7 +33,7 @@
         <div class="flat-show-card">
           <h3>Our Boat to yours Dream</h3>
           <div class="flex">
-            
+
             <div class="flex ms-3">
               <%= @boat.price %>€
             </div>
@@ -43,7 +42,7 @@
         <div class="flat-show-card">
           <div class="flex-align">
             <h6 class="no-mb">Share</h6>
-  
+
             <div class="flex">
               <i class="fa-brands fa-facebook-square me-2"></i>
               <i class="fa-brands fa-twitter-square me-2"></i>
