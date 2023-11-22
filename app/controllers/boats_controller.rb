@@ -1,18 +1,22 @@
-# app/controllers/boats_controller.rb
 class BoatsController < ApplicationController
+
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:query].present?
+      @query = params[:query]
+      @boats = Boat.where("name LIKE ?", "%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
+    else
     @boats = Boat.all
+    end
   end
+
 
   def new
     @boat = Boat.new
   end
-
-  def show
-  end
-
 
   def create
     @boat = Boat.new(boat_params)
@@ -23,17 +27,17 @@ class BoatsController < ApplicationController
     end
   end
 
-
+  def show
   end
 
   def edit
   end
 
-  def update
+  def  update
     if @boat.update(boat_params)
-      redirect_to boat_path(@boat)
+      redirect_to boat_path
     else
-      render :edit, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -42,33 +46,12 @@ class BoatsController < ApplicationController
     redirect_to boats_path
   end
 
-  def search
-    @boats = if params[:query].present?
-               perform_search(params[:query])
-             else
-               Boat.all
-             end
-    render :index
-  end
   private
-
   def set_boat
-    @boat = Boat.find_by(id: params[:id])
-
-
-    def boat_params
-      params.require(:boat).permit(:category, :name, :address, :description, :price, :photo, :photos)
-
-    unless @boat
-      flash[:alert] = "Boat not found"
-      redirect_to root_path
-
-    end
+   @boat = Boat.find(params[:id])
   end
 
-
-  def perform_search(query)
-    category_query = query["category"].downcase if query.present? && query["category"].present?
-    Boat.where("lower(category) = ?", category_query)
+  def boat_params
+    params.require(:boat).permit(:category, :name, :address, :description, :price, :photo, :photos)
   end
 end
