@@ -14,21 +14,16 @@ class BoatsController < ApplicationController
   end
 
 
-    def create
-      @boat = Boat.new(boat_params)
-      if @boat.save
-        redirect_to boat_path(@boat)
-      else
-        render :new, status: :unprocessable_entity
-      end
-    end
-
-
+  def create
+    @boat = Boat.new(boat_params)
     if @boat.save
       redirect_to boat_path(@boat)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+
   end
 
   def edit
@@ -71,7 +66,6 @@ class BoatsController < ApplicationController
     end
   end
 
- 
 
   def perform_search(query)
     category_query = query["category"].downcase if query.present? && query["category"].present?
