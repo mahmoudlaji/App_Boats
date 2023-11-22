@@ -13,26 +13,28 @@
         <div class="flat-card">
 
 
-            <div class="flat-card-content">
-              <div class="flat-card-title">
-                <h1>
-                  <%= boat.category %>
-                </h1>
-                <h4>
-                  <%= boat.name %>
-                </h4>
-              </div>
-              <p>
-                <%= boat.address %>
-              </p>
-              <div class="flex">
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill if boat.photo.attached? %>
 
-                <div class="flex align-items-center ms-3">
-                  <i class="fa-solid fa-euro-sign"></i>
-                  <span>
-                    <%= boat.price %>
-                  </span>
-                </div>
+              <h1>
+                <%= boat.category %>
+              </h1>
+              <h4>
+                <%= boat.name %>
+              </h4>
+            </div>
+            <p>
+              <%= boat.address %>
+            </p>
+            <div class="flex">
+
+              <div class="flex align-items-center ms-3">
+                <i class="fa-solid fa-euro-sign"></i>
+                <span>
+                  <%= boat.price %>
+                </span>
+
               </div>
             </div>
             <div class="flat-card-actions">
@@ -45,6 +47,9 @@
         </div>
         <% end %>
     </div>
+
+
+</div>
 
 
 </div>

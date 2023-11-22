@@ -13,8 +13,16 @@ class BoatsController < ApplicationController
   def show
   end
 
-  def create
-    @boat = Boat.new(boat_params)
+
+    def create
+      @boat = Boat.new(boat_params)
+      if @boat.save
+        redirect_to boat_path(@boat)
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+
 
     if @boat.save
       redirect_to boat_path(@boat)
@@ -52,15 +60,18 @@ class BoatsController < ApplicationController
   def set_boat
     @boat = Boat.find_by(id: params[:id])
 
+
+    def boat_params
+      params.require(:boat).permit(:category, :name, :address, :description, :price, :photo, :photos)
+
     unless @boat
       flash[:alert] = "Boat not found"
       redirect_to root_path
+
     end
   end
 
-  def boat_params
-    params.require(:boat).permit(:category, :name, :address, :description, :price)
-  end
+ 
 
   def perform_search(query)
     category_query = query["category"].downcase if query.present? && query["category"].present?
