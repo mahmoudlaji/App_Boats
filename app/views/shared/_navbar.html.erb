@@ -1,26 +1,29 @@
 Fixed navbar
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-red-500">
   <div class="container-fluid">
     <%= link_to boats_path do %>
-      <img height="40px" width="40px"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHYAAAB2CAMAAAAqeZcjAAAAllBMVEX///8TRXYlquIApOAAMmwAOnAAPnIANm4APHEAOG/09vgOQ3X7/v4GQXQAod////3r9voALWkaSnoiUX+uusjd7/fFzteDlaxIZYpMteRYbpCn2O/i5upme5m/4fHo7vGGyurQ6fVhvOYzsOS4xtHQ2N8vVoAAH2Kdq7yLnrM6XYVxiaJZdJSz3vOa0u14xekAJWUAl9zzAGlpAAAEKElEQVRoge2ZaZeaPBTHE3bZF1EZ2RHHFdrv/+V6k8Bgp31az2Ng+iL/Vzkejj/vfoMICQkJCQkJCQkJCQkJ/dvyvoh7OJhfQLXRWss29uLcFhXH9+i0uMlbE2WBrpwXttiMTLQNsBqcluWucYFOAbaM42ZR7uVionMQRli5LhnidXCDEGshxmrULoc1j8oWeTcVY+yoC0b4rOtrZIcOcLF+XSyl25WjpahVLMp9WyrA5sXSdgiddILF6m4p7lXDOgT1QtxsheFxIT8TO1cmaom5UEjGZRlsq4BvtwhlBqHC+bYINtUgm95NlAKWxhcqyp8fW0SANcDcq4qZgkOc5PNC7XuxA6ylm8xsls/p3a3jGalxIvlvJIehZ6CbM2C1N3vfuN1sS08uSQ3FWg7U7kEZsFg5IfMuJTPV0l4esSEOUlSEg5etMEqhkZSNP4fBhEqxVhTRlpFpDBtGRkYeyJsZUjp3gSr35s4h9eoAaK0MVGyt6NiPa95+9mKZUmGxCSNSsBbk8moMLmQVfcrvOGNRQqg1tAugkpgGLRkLH1ydbTk+5wLuaGDBh+lQNqSExuCSoc/MRTHX8DIXx95UNqQvn1U8mTvsOFwnYQlYmQbuPARUm3KK/YwrTx6TLxHRqhwd6+xs1BoTFhv8uwWJrHwnp480co6Qyg/W4tWBN9UmadxQY1NjbE1RgYpHrMZ98MbSGNkpnARrrh6w+Btv7J34mE22MbTQhwGrWg9YhbeXezID6MmMRlAYfsZqW85YEtqenjb6CKGx1R+o8Alfqt1IjbSnx+yjZCzI5CGlLLZU4aDgivUBK9NmW0y20boNCNSJolmCS5tFRU7ryaukS20CbHy73LSA9Wn1zBfbAJYmMr0LMJeSnnxSlC041j7sKFjL+GKlAdvqhqJow3oME2i7Gi/1AFYdI3zoj+bLswhSSpKJkzPnut6cbpruWNp7iuxsulnb7TnLSAWZfpzvyxqS/+URWLPYFleWqunpbXcDO8308bf5cXUv+6SRZBD8zv2rVNIuSCY/jNLJm7bvV/euB/MYbhSH9RWao/x5S7LBvLwDbzayO+CaCcqC8qJisCOZeCR44M2frftE7TmszF7X5ZVnM29Ksuu6MpUkT5Kan7Acdhu/IrnZuN+/u/Dtdd133T7P86qqYqKqyvN91yfuZLz8ygLJvFkndV+CXYn/t7tG3DUDuH6BirwJAyuc/Ewd3hmW11pF+mP/zIMVpyweBPcu95mbswftieeNBL4ueaYoai618yFf+rVl/PaxhO9ts5KfqYuu4f0Sg+yPf0uWmDv1Ga6fzPDCxqskWfqTn/16nhdjJnTk8j8T1Z7vpVguuX80eC55+8ZtvgJsV2UjlfkC7zd/IcewNpUwhOPl//LzbPur/lsVEhISEhISEhISEhL6f/oB8WhI+Ou+lnQAAAAASUVORK5CYII="
+      <img height="50px" width="50px"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Uym4bzL_l_sgOj93k1wwReR1UaGPByt1fw&usqp=CAU"
         alt="log App">
       <%end%>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <%= link_to "Sign In" , new_user_registration_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+          <%= link_to "Log In" , user_session_path, class: "btn btn-outline-success my-2 my-sm-0 ms-2" %>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <%= link_to "Log Out" , destroy_user_session_path, class: "btn btn-outline-danger my-2 my-sm-0 ms-2" %>
+              </ul>
 
-          </ul>
-
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search"
-              value="<%= params[:query] %>">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          <%= link_to "Add new Boats" , new_boat_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
-        </div>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search"
+                  value="<%= params[:query] %>">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              <%= link_to "Add new Boats" , new_boat_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+            </div>
   </div>
 </nav>
