@@ -20,17 +20,31 @@
         <div class="flat-show-card">
           <h5>Book this place!</h5>
 
-          <form action="">
+        <div data-controller="toggle" class="mt-5">
+          <div data-toggle-target="togglableElement" class="d-none">
+        <%= simple_form_for([@boat, @reservation]) do |b| %>
             <div class="input-group">
+              <h1> <%= b.input :name %> </h1>
+              <h1> <%= b.input :last_name %> </h1>
+              <h1> <%= b.input :email %> </h1>
               <span class="input-group-text" id="start-date-label">From:</span>
-              <input type="text" class="form-control" placeholder="12/10/2017" aria-label="start-date" aria-describedby="start-date-label">
+             <%= b.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+             <%= b.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+            <%= b.submit class: "btn btn-primary" %>
+<% end %>
             </div>
-            <div class="input-group mt-2">
-              <span class="input-group-text" id="end-date-label">To:</span>
-              <input type="text" class="form-control" placeholder="18/10/2017" aria-label="end-date" aria-describedby="start-date-label">
+
             </div>
-            <input type="submit" value="Book&Reserv" class="btn btn-success mt-2" style="width: 100%">
+
+          <input data-action="click->toggle#fire" type="submit" value="Book&Reserv" class="btn btn-success mt-2" style="width: 100%">
+
           </form>
+          </div>
+          </div>
         </div>
         <div class="flat-show-card">
           <h3>Our Boat to yours Dream</h3>
@@ -58,5 +72,3 @@
       </div>
     </div>
   </div>
-
-
