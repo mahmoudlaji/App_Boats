@@ -13,7 +13,7 @@
         <div class="flat-card">
           <div class="flat-card-content d-flex flex-column">
             <div class="flat-card-title">
-              <%= cl_image_tag(boat.photo.key, height: 300, width: 400, crop: :fill) if boat.photo.attached? %>
+              <%= cl_image_tag(boat.photo.key, style: "width: 300px;") if boat.photo.attached? %>
               <h1>
                 <%= boat.category %>
               </h1>

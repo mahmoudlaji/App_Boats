@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-8">
         <div class="flat-show-card">
-          <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill if @boat.photo.attached? %>
+          <%= cl_image_tag @boat.photo.key, style: "width: 300px;" if @boat.photo.attached? %>
           <h3><%= @boat.category %></h3>
           <h5><%= @boat.name %></h5>
           <p class="flat-show-address"><%= @boat.address %></p>
@@ -58,5 +58,3 @@
       </div>
     </div>
   </div>
-
-
