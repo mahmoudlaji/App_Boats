@@ -1,7 +1,7 @@
 class BoatsController < ApplicationController
-
+   skip_before_action :authenticate_user!, only: :index
     before_action :set_boat, only: [:show, :edit, :update, :destroy]
-
+    # before_action :authentification
     def index
       if params[:query].present?
         @query = params[:query]
@@ -20,6 +20,7 @@ class BoatsController < ApplicationController
 
     def create
       @boat = Boat.new(boat_params)
+      @boat.user = current_user
       if @boat.save
         redirect_to boat_path(@boat)
       else
@@ -28,6 +29,8 @@ class BoatsController < ApplicationController
     end
 
     def show
+      @user = @boat.user
+      @reservation = Reservation.new
     end
 
     def edit
