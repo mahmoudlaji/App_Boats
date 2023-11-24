@@ -9,6 +9,7 @@
 
   <div class="row">
      <% @boats.each do |boat| %>
+    
       <div class="col-md-4">
         <div class="flat-card">
           <div class="flat-card-content d-flex flex-column">
@@ -39,11 +40,14 @@
               <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning" %>
               <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                   class: "ms-3 text-danger" %>
+                  </div>
                   <% end %>
+                
             </div>
           </div>
         </div>
       </div>
+       
     <% end %>
   </div>
 </div>
