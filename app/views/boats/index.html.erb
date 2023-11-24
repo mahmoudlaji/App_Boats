@@ -6,8 +6,6 @@
       <h3>Près de chez vous</h3>
       <div class="flex">
        <input type="text">
-
-
        </div>
       </div>
   </div>
@@ -41,18 +39,14 @@
                   <%= boat.price %>
                 </span>
               </div>
-            </div>
-            <div class="flat-card-actions mt-auto">
-              <%= link_to "More info", boat_path(boat) %>
-              <% if user_signed_in? %>
+              <div class="flat-card-actions mt-auto">
+                <%= link_to "More info", boat_path(boat) %>
+                <% if user_signed_in? %>
                 <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning" %>
                 <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                   class: "ms-3 text-danger" %>
-
-                  </div>
-                  <% end %>
-                
-
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -60,6 +54,8 @@
        
     <% end %>
   </div>
+  </div>
+
 
   <%= link_to "Go Back To Home", boats_path %>
 </div>
