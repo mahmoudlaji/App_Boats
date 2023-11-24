@@ -1,12 +1,24 @@
-<div class="container">
-  <h1>Reservation Details</h1>
+<div class="class mt-4" data-controller="sweetalert">
+  <div class="container show-reservation">
+    <div class="reservation-card card border-border-black mb-3">
+      <div class="card-header bg-transparent border-black">
+        <h1>Détails de votre Réservation</h1>
+      </div>
+        <div class="card-body text-black">
+          <p>Name: <%= @reservation.name %></p>
+          <p>Last Name: <%= @reservation.last_name %></p>
+          <p>Email: <%= @reservation.email %></p>
+          <p>Start Date: <%= @reservation.start_date %></p>
+          <p>End Date: <%= @reservation.end_date %></p>
+        </div>
+      <div class="card-footer bg-transparent border-black">
+        Merci pour votre réservation.
+      </div>
+    </div>
 
-  <p>Name: <%= @reservation.name %></p>
-  <p>Last Name: <%= @reservation.last_name %></p>
-  <p>Email: <%= @reservation.email %></p>
-  <p>Start Date: <%= @reservation.start_date %></p>
-  <p>End Date: <%= @reservation.end_date %></p>
+    <div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'Back to Home', boat_reservations_path(@reservation.boat), class: "btn btn-primary" %>
 
-
-  <%= link_to 'Back to Boat', boat_reservations_path(@reservation.boat) %>
+</div>
+  </div>
 </div>
