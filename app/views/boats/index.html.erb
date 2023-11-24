@@ -1,14 +1,19 @@
-<%= render "shared/navbar" %>
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col-12"><br>
-        <h5>All Our Best Boats</h5>
+<div class="p-3 mt-5"></div>
+<div class="dalina-card ">
+  <div class=" banner">
+      <h1><strong>Trouvez le bateau de vos rêves</strong></h1><br>
+      <h3>Près de chez vous</h3>
+      <div class="flex">
+       <input type="text">
+
+       </div>
       </div>
-    </div>
+  </div>
+</div>
 
-
+ <div class="col-12"><br>
   <div class="row">
-     <% @boats.each do |boat| %>
+    <% @boats.each do |boat| %>
       <div class="col-md-4">
         <div class="flat-card">
           <div class="flat-card-content d-flex flex-column">
@@ -34,21 +39,17 @@
             </div>
             <div class="flat-card-actions mt-auto">
               <%= link_to "More info", boat_path(boat) %>
-              <% if user_signed_in?%>
-
-              <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning" %>
-              <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+              <% if user_signed_in? %>
+                <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning" %>
+                <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                   class: "ms-3 text-danger" %>
-                  <% end %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+
+  <%= link_to "Go Back To Home", boats_path %>
 </div>
-
-
-</div>
-
-<%= link_to "Go Back To Home" , boats_path %>
