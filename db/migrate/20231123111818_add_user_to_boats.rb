@@ -1,5 +1,5 @@
-class AddUserToBoats < ActiveRecord::Migration[7.0]
+class AddUserToBoats < ActiveRecord::Migration[6.1]
   def change
-    add_reference :boats, :user, null: false, foreign_key: true
+    add_reference :boats, :user, null: true, foreign_key: true
   end
 end
