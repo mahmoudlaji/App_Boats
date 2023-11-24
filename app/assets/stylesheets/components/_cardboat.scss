@@ -1,0 +1,27 @@
+
+.cardboat {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  width: auto;
+
+}
+.category {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+img{
+  border-radius: 10px;
+}
+
+.center-image {
+  margin: 0 auto; /* Ajout de la marge pour centrer l'image horizontalement */
+  display: block;
+
+}
+
+.flat-card-actions {
+  align-self: flex-end; /* Aligner les actions en bas à droite */
+}

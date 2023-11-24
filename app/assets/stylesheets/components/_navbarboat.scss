@@ -1,0 +1,112 @@
+.navbar {
+  background-color: #e3f2fd;
+  padding: 10px 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 4px 6px -6px #000 inset;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 20px;
+}
+
+.logo {
+  border-radius: 50%;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-white,
+.btn-black,
+.btn-light-red,
+.btn-outline-white {
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn-white {
+  background-color: white;
+  color: #333;
+}
+
+.btn-black {
+  background-color: black;
+  color: white;
+}
+
+
+
+.btn-outline-white {
+  border-color: white;
+  color: white;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Votre fichier SCSS */
+/* ... (autres imports de fichiers SCSS) */
+
+/* Ajoutez ces styles pour la barre de recherche avec border-radius */
+.navbar-search-form {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="search"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Ajoutez cette ligne pour définir le border-radius */
+}
+
+/* Ajoutez ces styles pour changer la couleur du contour de "Log out" en gris */
+.btn-danger {
+  border-color: gray !important; /* Utilisez !important pour s'assurer que le style est appliqué */
+  color: white; /* Assurez-vous que le texte reste lisible */
+}
+
+/* Vous pouvez ajuster les valeurs selon vos préférences */
+
+
+.btn-add-new-boats {
+  margin-left: 10px;
+}
+
+.btn-search {
+  margin-right: 10px; /* Ajout de la marge à droite pour décoller le bouton "Search" */
+}
+
+
+
+
+.footer {
+  background-color: #e3f2fd;
+  padding: 20px 0;
+  text-align: center;
+  color: #333;
+  font-size: 14px; /* Ajoutez cette ligne pour définir la taille du texte */
+}
+
+/* Vous pouvez ajouter d'autres styles selon vos besoins */

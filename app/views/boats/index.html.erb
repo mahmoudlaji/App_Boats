@@ -1,4 +1,3 @@
-<%= render "shared/navbar" %>
   <div class="container mt-3">
     <div class="row">
       <div class="col-12"><br>
@@ -6,17 +5,20 @@
       </div>
     </div>
 
-
   <div class="row">
      <% @boats.each do |boat| %>
+     <div class="cardboat">
       <div class="col-md-4">
+
         <div class="flat-card">
           <div class="flat-card-content d-flex flex-column">
             <div class="flat-card-title">
-              <%= cl_image_tag(boat.photo.key, height: 300, width: 400, crop: :fill) if boat.photo.attached? %>
+              <div class="category">
               <h1>
                 <%= boat.category %>
               </h1>
+              </div>
+              <%= cl_image_tag(boat.photo.key, height: 300, width: 400, crop: :fill) if boat.photo.attached? %>
               <h4>
                 <%= boat.name %>
               </h4>
@@ -26,23 +28,25 @@
             </p>
             <div class="flex">
               <div class="flex align-items-center ms-3">
-                <i class="fa-solid fa-euro-sign"></i>
                 <span>
                   <%= boat.price %>
                 </span>
+                <i class="fa-solid fa-euro-sign"></i>
               </div>
             </div>
             <div class="flat-card-actions mt-auto">
               <%= link_to "More info", boat_path(boat) %>
               <% if user_signed_in?%>
 
-              <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning" %>
+              <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning", class: "btn btn-primary" %>
               <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                  class: "ms-3 text-danger" %>
+                  class: "btn btn-danger" %>
                   <% end %>
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     <% end %>
   </div>
@@ -52,3 +56,4 @@
 </div>
 
 <%= link_to "Go Back To Home" , boats_path %>
+<%= render "shared/footer" %>
