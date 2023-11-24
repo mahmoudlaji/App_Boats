@@ -1,3 +1,4 @@
+
 <div class="p-3 mt-5"></div>
 <div class="dalina-card ">
   <div class=" banner">
@@ -6,6 +7,7 @@
       <div class="flex">
        <input type="text">
 
+
        </div>
       </div>
   </div>
@@ -13,7 +15,10 @@
 
  <div class="col-12"><br>
   <div class="row">
-    <% @boats.each do |boat| %>
+
+     <% @boats.each do |boat| %>
+    
+
       <div class="col-md-4">
         <div class="flat-card">
           <div class="flat-card-content d-flex flex-column">
@@ -43,11 +48,16 @@
                 <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning" %>
                 <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                   class: "ms-3 text-danger" %>
-              <% end %>
+
+                  </div>
+                  <% end %>
+                
+
             </div>
           </div>
         </div>
       </div>
+       
     <% end %>
   </div>
 
