@@ -10,8 +10,10 @@
         <%= image_tag("logo.jpg", alt: "Your Logo", class: "navbar-logo", size: "50x50") %>
       <% end %>
       <%= link_to "Sign up" ,  new_user_registration_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
-<%= link_to "Login" ,  new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0 ms-2" %>
-<%= link_to "Log out" ,  destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger my-2 my-sm-0 ms-2" %>
+<% if user_signed_in?%>
+
+
+<%= link_to "Log out" ,  destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger my-2 my-sm-0 ms-2" %><% end %>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -24,8 +26,9 @@
          value="<%= params.dig(:query, :category) %>">
        <button class="btn btn-outline-success" type="submit">Search</button>
       <% end %>
+<% if user_signed_in?%>
 
-        <%= link_to "Add new Boats" , new_boat_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+        <%= link_to "Add new Boats" , new_boat_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %><% end %>
       </div>
     </div>
   </nav>

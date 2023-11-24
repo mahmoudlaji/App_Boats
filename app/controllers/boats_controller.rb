@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-   skip_before_action :authenticate_user!, only: :index
+  #  skip_before_action :authenticate_user!, only: :index
     before_action :set_boat, only: [:show, :edit, :update, :destroy]
     # before_action :authentification
     def index
@@ -29,8 +29,15 @@ class BoatsController < ApplicationController
     end
 
     def show
+      @boats = Boat.all
       @user = @boat.user
       @reservation = Reservation.new
+      @markers = @boats.geocoded.map do |boat|
+        {
+          lat: boat.latitude,
+          lng: boat.longitude
+        }
+      end
     end
 
     def edit
@@ -38,7 +45,7 @@ class BoatsController < ApplicationController
 
     def  update
       if @boat.update(boat_params)
-        redirect_to boat_path
+        redirect_to boat_path(@boat)
       else
         render :new, status: :unprocessable_entity
       end
@@ -68,6 +75,6 @@ class BoatsController < ApplicationController
     end
 
     def boat_params
-      params.require(:boat).permit(:category, :name, :address, :description, :price, :photo, :photos)
+      params.require(:boat).permit(:category, :name, :address, :description, :price, :photo, :photos, :longitude, :latitude)
     end
 end

@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-  validates :name, :last_name, :email, presence: :true, uniqueness: :true
+  validates :name, :last_name, :email, presence: :true
   validates :start_date, :end_date, presence: :true
 
   belongs_to :boat

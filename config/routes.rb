@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "boats#index"
 
   resources :boats do
-    resources :reservations, only: [:create]
+    resources :reservations, only: [:create, :show]
     collection do
       get :search
     end

@@ -6,8 +6,11 @@ class Boat < ApplicationRecord
   has_many :users, through: :reservations
   belongs_to :user
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   CATEGORIES = ["Motorship", "Sailboat", "Yacht", "Catamaran", "JetSki"]
-  validates :name, :address, presence: :true, uniqueness: :true
+  validates :name, :address, presence: :true
   validates :description, :price, presence: :true
   validates :category, presence: :true, inclusion: { in: CATEGORIES }
 end
