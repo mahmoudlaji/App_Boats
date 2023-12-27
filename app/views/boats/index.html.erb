@@ -1,23 +1,24 @@
-<div class="container">
-  <div class="dalina-card ">
-    <div class=" banner">
-      <h1><strong>Trouvez le bateau de vos rêves</strong></h1><br>
-      <h3>Près de chez vous</h3>
-      <div class="flex">
-        <input type="text">
+
+ 
+    <div class="dalina-card ">
+      <div class=" banner">
+        <h1><strong>Trouvez le bateau de vos rêves</strong></h1><br>
+        <h3>Près de chez vous</h3>
+        <div class="flex">
+          
+        </div>
       </div>
     </div>
-  </div>
-</div>
+ 
 
-<div class="col-12"><br>
-  <div class="row">
+  <div class="col-12"><br>
+    <div class="row">
 
-    <% @boats.each do |boat| %>
+      <% @boats.each do |boat| %>
 
 
-      <div class="col-md-3">
-       
+        <div class="col-md-3">
+
           <div class="flat-card d-flex">
             <div class="cardm">
               <div class="flat-card-title">
@@ -52,15 +53,12 @@
             </div>
 
           </div>
-       
 
-      </div>
 
-      <% end %>
+        </div>
+
+        <% end %>
+    </div>
+    <%= link_to "Go Back To Home" , boats_path, class:"text-dark" %>
   </div>
-  <%= link_to "Go Back To Home" , boats_path, class:"text-dark" %>
-</div>
 
-
-
-  
