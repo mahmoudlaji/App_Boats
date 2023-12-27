@@ -1,66 +1,66 @@
-
-<div class="p-3 mt-5"></div>
-<div class="dalina-card ">
-  <div class=" banner">
+<div class="container">
+  <div class="dalina-card ">
+    <div class=" banner">
       <h1><strong>Trouvez le bateau de vos rêves</strong></h1><br>
       <h3>Près de chez vous</h3>
       <div class="flex">
-       <input type="text">
-       </div>
+        <input type="text">
       </div>
+    </div>
   </div>
 </div>
 
- <div class="col-12"><br>
+<div class="col-12"><br>
   <div class="row">
 
-     <% @boats.each do |boat| %>
+    <% @boats.each do |boat| %>
 
 
       <div class="col-md-3">
-        <div class="cardm">
-        <div class="flat-card d-flex">
-          <div class="cardm">
-            <div class="flat-card-title">
-              <%= cl_image_tag(boat.photo.key, height: 300, width: 300, crop: :fill) if boat.photo.attached? %>
-              <h1>
-                <%= boat.category %>
-              </h1>
-              <h4>
-                <%= boat.name %>
-              </h4>
-            </div>
-            <p>
-              <%= boat.address %>
-            </p>
-            <div class="flex">
-              <div class="flex align-items-center ms-3">
-                <i class="fa-solid fa-euro-sign"></i>
-                <span>
-                  <%= boat.price %>
-                </span>
+       
+          <div class="flat-card d-flex">
+            <div class="cardm">
+              <div class="flat-card-title">
+                <%= cl_image_tag(boat.photo.key, height: 300, width: 300, crop: :fill) if boat.photo.attached? %>
+                  <h1>
+                    <%= boat.category %>
+                  </h1>
+                  <h4>
+                    <%= boat.name %>
+                  </h4>
               </div>
-              <div class="flat-card-actions mt-auto">
-                <%= link_to "More info", boat_path(boat) %>
-                <% if user_signed_in? %>
-                <%= link_to "Edit", edit_boat_path(boat), class: "ms-3 text-warning", class: "btn btn-success" %>
-              <%= link_to "Remove", boat_path(boat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                  class: "btn btn-warning" %>
-                <% end %>
+              <p>
+                <%= boat.address %>
+              </p>
+              <div class="flex">
+                <div class="flex align-items-center ms-3">
+                  <i class="fa-solid fa-euro-sign"></i>
+                  <span>
+                    <%= boat.price %>
+                  </span>
+                </div>
+                <div class="flat-card-actions mt-auto">
+                  <%= link_to "More info" , boat_path(boat), class: "text-dark" %>
+                    <% if user_signed_in? %>
+                      <%= link_to "Edit" , edit_boat_path(boat), class: "ms-3 text-warning" , class: "btn btn-light" %>
+                        <%= link_to "Remove" , boat_path(boat), data: { turbo_method: :delete,
+                          turbo_confirm: "Are you sure?" }, class: "btn btn-light" %>
+                          <% end %>
+                </div>
               </div>
+
             </div>
 
           </div>
-
-        </div>
-        </div>
+       
 
       </div>
 
-    <% end %>
+      <% end %>
   </div>
-  </div>
-
-
-  <%= link_to "Go Back To Home", boats_path %>
+  <%= link_to "Go Back To Home" , boats_path, class:"text-dark" %>
 </div>
+
+
+
+  
